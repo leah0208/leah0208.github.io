@@ -1,0 +1,211 @@
+<!-- playlists page
+For the playlists page, I’ve chosen some of my favorite sounds that
+relate to the overall Music Album concept. My goal is to make this 
+page feel like a fully interactive album experience. To enhance the
+functionality, I’ve added playback features like double-clicking 
+the video to switch to full-screen mode, providing a more immersive
+viewing option. Additionally, users can easily navigate between
+videos by clicking the "Next/Previous" buttons, allowing them
+to seamlessly switch between different tracks or visuals without
+ interrupting the flow -->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playlists</title>
+  <link rel="stylesheet" href="reset.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+
+  <style>
+    .container {
+      max-width: 1600px;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      -webkit-object-fit: cover;
+    }
+
+    .custom-controls {
+      position: absolute;
+      bottom: 10px;
+      transform: translateX(-50%);
+      left: 50%;
+      background: rgba(255, 255, 255, 0.7);
+      display: flex;
+      display: -webkit-flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 5px;
+      z-index: 2;
+      opacity: 0;
+      width: 98%;
+      padding: 0px 16px 0px 0px;
+      transition: opacity 0.3s;
+    }
+
+    .video-container:hover .custom-controls {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+      -webkit-transition: opacity 0.3s ease;
+    }
+
+    .video-container button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      /* margin-right: 10px; */
+    }
+
+    #current-time {
+      color: white;
+      margin-right: 10px;
+      font-size: 18px;
+      font-family: 'Silom';
+      opacity: 0.5;
+    }
+
+    .header {
+      position: fixed;
+      display: flex;
+      display: -webkit-flex;
+      top: 10px;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      z-index: 2;
+    }
+
+    .header a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-family: 'Silom';
+      opacity: 0.5;
+      padding-right: 20px;
+    }
+
+    .progress-bar {
+      background: #444;
+      height: 5px;
+      width: 50%;
+      margin: 0 10px;
+      position: relative;
+    }
+
+    .progress-bar span {
+      display: block;
+      height: 100%;
+      background: #f00;
+      width: 0%;
+      transition: width 0.2s ease;
+    }
+
+    .video-container .custom-controls img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .right-container {
+      display: flex;
+      display: -webkit-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 30%;
+      margin-left: 100px;
+    }
+
+    .video-item {
+      margin: 20px 0;
+    }
+
+    .video-item img {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./video.html">Videos</a></li>
+      <li><a href="#">Playlists</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+
+    <div class="video-container">
+      <video id="video-player" muted src="http://v3.janreszz.com/video/m9/1.mp4"
+        poster="./assets/icons/Screenshot 2024-09-24 at 6.22.43 PM.png">
+        <source src="http://v3.janreszz.com/video/m9/1.mp4" type="video/mp4" />
+      </video>
+      <div class="custom-controls">
+        <button onclick="togglePlayPause()">
+          <img id="play-pause-img" src="./assets/icons/icons8-play.gif">
+        </button>
+
+        <button id="mute-button" onclick="muteUnmute()">
+          <img id="mute-img" src="./assets/icons/icons8-no-audio-30.png">
+        </button>
+        <button onclick="prev()">
+          <img src="./assets/icons/icons8-skip-to-start.gif">
+        </button>
+        <button onclick="next()">
+          <img src="./assets/icons/icons8-end.gif">
+        </button>
+        <div class="progress-bar">
+          <span id="progress-bar-fill"></span>
+        </div>
+
+        <button onclick="toggleRandom()">
+          <img id="random-img" src="./assets/icons/icons8-repeat-30.png">
+        </button>
+
+        <div style="display: flex;align-items: center; display: -webkit-flex;">
+          <img id="mute-img" src="./assets/icons/icons8-low-volume-30.png">
+          <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1" onchange="setVolume(this.value)">
+          <img id="mute-img" src="./assets/icons/icons8-audio-30.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="right-container">
+    </div>
+  </main>
+
+  <footer>
+    <div class="scrolling-wrapper">
+      <div class="scrolling-text">
+        <span>Media Player Website_2024. All rights reserved.</span>
+        <a href="https://icons8.com/icon/59862/play">Play</a> icon by
+        <a href="https://icons8.com">Icons8</a>
+        <a href="https://icons8.com/icon/61012/pause">Pause</a> icon by
+        <a href="https://icons8.com">Icons8</a>
+      </div>
+    </div>
+  </footer>
+
+  
+</body>
+
+</html>
