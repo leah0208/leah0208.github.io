@@ -1,0 +1,155 @@
+
+<!--For the video page, I intend to create an immersive experience
+ by having the video fill the entire background, allowing the content
+to be the focal point. When the user moves the mouse away from the
+screen, the progress bar at the bottom will disappear, removing
+unnecessary distractions. In the top-left corner, I will display
+the current time of the video, providing useful information
+without cluttering the interface. Additionally, a home button
+in the top-right corner will allow users to quickly return to the 
+homepage with a single click, ensuring smooth navigation and a 
+user-friendly experience.-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Videos</title>
+    <script src="script1.js" defer></script>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: black;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .custom-controls {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+            display: flex;
+            display: -webkit-flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .video-container:hover .custom-controls {
+            opacity: 1;
+        }
+
+        button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        #current-time {
+            color: white;
+            margin-right: 10px;
+            font-size: 18px;
+            font-family: 'Silom';
+            opacity: 0.5;
+        }
+
+        .header {
+            position: fixed;
+            display: flex;
+            display: -webkit-flex;
+            top: 10px;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .header a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: 'Silom';
+            opacity: 0.5;
+            padding-right: 20px;
+        }
+
+        .progress-bar {
+            background: #444;
+            height: 5px;
+            width: 100%;
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .progress-bar span {
+            display: block;
+            height: 100%;
+            background: #f00;
+            width: 0%;
+        }
+
+        img {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="video-container">
+        <div class="header">
+            <span id="current-time">Current Time: 0s</span>
+            <a href="./index.html">Home</a>
+        </div>
+        <video id="video-player" muted>
+            <source src="https://thelongesthumstore.sgp1.cdn.digitaloceanspaces.com/IM-2250/miac.mp4" type="video/mp4" />
+        </video>
+        <div class="custom-controls">
+            <button onclick="rewind()">
+                <img src="./assets/icons/icons8-rewind-30.png">
+            </button>
+            <button onclick="togglePlayPause()">
+                <img id="play-pause-img" src="./assets/icons/icons8-play.gif">
+            </button>
+            <button onclick="forward()">
+                <img src="./assets/icons/icons8-fast-forward-30.png">
+            </button>
+            <div class="progress-bar">
+                <span id="progress-bar-fill"></span>
+            </div>
+            <button id="mute-button" onclick="muteUnmute()">
+                <img id="mute-img" src="./assets/icons/icons8-no-audio-30.png">
+            </button>
+            <button onclick="restart()">
+                <img src="./assets/icons/icons8-replay-30.png">
+            </button>
+        </div>
+    </div>
+
+    
+</body>
+
+</html>
