@@ -1,0 +1,195 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: url('../assets/images/bg.png') no-repeat center center;
+  background-size: cover;
+  -webkit-background-size: cover; /* Safari  */
+  cursor: url('../assets/images/Asset 18.png') 20 30, pointer;
+  overflow-x: hidden;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+}
+
+.icon-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.left-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 12.5%;
+}
+
+.right-icon {
+  position: absolute;
+  top: 0;
+  right: 1%;
+  height: 5%;
+}
+
+.bottom-left-icon {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 5%;
+}
+
+.bottom-right-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 16%;
+  animation: flicker 1s infinite;
+  -webkit-animation: flicker 1s infinite; /* Safari */
+}
+
+.link-box {
+  position: absolute;
+  bottom: 0;
+  left: 6%;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  line-height: 60%;
+  z-index: 2;
+}
+
+.link-item {
+  margin-right: 20px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-family: Copperplate;
+  color: #000;
+}
+
+.link-item::before {
+  content: '+';
+  margin-right: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+  display: inline-block;
+}
+
+.link-item:hover,
+.link-item:hover::before {
+  color: #0ff;
+}
+
+.bg-font {
+  width: 46.6%;
+  height: 80%;
+  /* height: 630px; */
+  position: absolute;
+  top: 10%;
+  left: 40%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-font img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 100%;
+}
+
+.drag-content {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: auto;
+}
+
+
+.drag-box {
+  width: 100%;
+  height: 200vh;
+  position: absolute;
+  overflow: hidden;
+}
+
+@-webkit-keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.draggable {
+  width: auto;
+  height: 500px;
+  position: absolute;
+  overflow-x: hidden;
+}
+
+.drag-item1 {
+  top: 10%;
+  left: 22%;
+  height: 31%;
+}
+
+.drag-item2 {
+  top: 9%;
+  right: 18.3%;
+  height: 28.8%;
+}
+
+.drag-item3 {
+  top: 30%;
+  left: 70%;
+  height: 15%;
+}
+
+.drag-item4 {
+  left: 8%;
+  top: 60%;
+  height: 17%;
+}
+
+.drag-item5 {
+  left: 42%;
+  top: 69.5%;
+  height: 14%;
+}
+
+.drag-item6 {
+  left: 53%;
+  top: 52.5%;
+  height: 26%;
+}

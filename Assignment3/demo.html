@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>move DIV</title>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      /* Prevents scrollbars from appearing */
+    }
+
+    .movable-div {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      position: absolute;
+      top: 50%;
+      /* initial position */
+      left: 50%;
+      /* initial position */
+      transform: translate(-50%, -50%);
+      /*  div center */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="movable-div"></div>
+  <script>
+
+    const div = document.querySelector('.movable-div');
+    let posX = Math.random() * (window.innerWidth - 200); // Random initial X position
+    let posY = Math.random() * (window.innerHeight - 200); // Random initial Y position
+    let speedX = 10; // X vertical speed
+    let speedY = 10; // Y vertical speed
+
+    function moveDiv() {
+      posX += speedX;
+      posY += speedY;
+
+      // Reverse direction when you hit an edge
+      if (posX <= 0 || posX >= window.innerWidth - 200 / 2) {
+        speedX = -speedX;
+      }
+      if (posY <= 0 || posY >= window.innerHeight - 200 / 2) {
+        speedY = -speedY;
+      }
+
+      // Update div position
+      div.style.left = `${posX}px`;
+      div.style.top = `${posY}px`;
+
+      requestAnimationFrame(moveDiv); // loop
+    }
+
+    // start moving
+    moveDiv();
+
+
+
+  </script>
+</body>
+
+</html>
