@@ -43,6 +43,9 @@ function getElementPos() {
   speedY = 1;
   moveElement();
 }
+// Random Movement for Background Elements
+// The red layer item moves randomly behind other elements, giving a sense of unpredictability that suits the 
+// experimental theme of Leah's work. This dynamic adds a subtle element of surprise without overwhelming the user. 
 
 function moveElement() {
   posX += speedX;

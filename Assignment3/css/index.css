@@ -83,6 +83,10 @@ body {
   color: #000;
   display: inline-block;
 }
+/* Hover Interaction for Font Color Change
+When the user hovers over navigational links (e.g., Home, Contact, Works), the font color changes to #00FFFF. 
+This neon blue was chosen to match Leah’s aesthetic style, inspired by Palat2023’s dynamic color transitions 
+which energize the site. Here, the hover effect offers visual feedback, providing intuitive guidance for navigation. */
 
 .link-item:hover,
 .link-item:hover::before {

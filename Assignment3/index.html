@@ -1,3 +1,4 @@
+ 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +9,13 @@
   <link rel="stylesheet" href="./css/index.css">
 
   <style>
+    /* Initial Setup and Context Explanation
+      This project aims to create an interactive digital portfolio for Leah Li’s experimental art pieces. 
+      By implementing drag, hover, and scroll actions, the design embraces a playful and immersive approach,
+      reflecting the chaotic and layered nature of Leah’s artwork. This style was inspired by interactive websites 
+      such as Twomuch Studio, Kevin McCaughey, and Palat2023. Each of these websites incorporates 
+      ynamic effects to enhance user engagement, a principle which I've adapted here for both usability 
+      and aesthetic impact.*/
     /* hidden iframe */
     iframe {
         display: none;
@@ -29,13 +37,27 @@
       <a class="link-item" href="./works.html">WORKS</a>
     </div>
 
+    
+    <!-- Scroll Functionality for Static Background
+    // Users can scroll up and down the page while the background remains static. This creates a sense of depth and 
+    // continuity, as users explore different layers of the artwork while grounded by a constant background. 
+    // Kevin McCaughey’s structured layout inspired this choice, emphasizing each section as a unique “layer” of the design.
+     -->
     <div class="bg-font" id="bg-font">
       <img src="./assets/images/Asset 13.png" alt="bg-font">
       <img src="./assets/images/Asset 14.png" alt="bg-font">
     </div>
 
-    <div class="drag-content">
-      <div class="drag-box">
+
+    <!-- All elements with 'draggable' class can be dragged -->
+    <!-- Drag Functionality
+   Each draggable element responds to mouse or touch events, allowing users to freely move elements around the screen.
+   This design choice was influenced by Twomuch Studio's drag-and-bounce effect, which makes interaction 
+   feel lively and tactile. Here, I've added only drag functionality without bounce for a subtle, 
+   organic movement that suits Leah’s thematic expression. -->
+
+    <div class="drag-content"> 
+      <div class="drag-box"> 
         <img src="./assets/images/Asset 10.png" alt="drag-box" class="draggable drag-item1">
         <img src="./assets/images/Asset 12.png" alt="drag-box" class="draggable drag-item2">
         <img src="./assets/images/Asset 11.png" alt="drag-box" class="draggable drag-item3">
